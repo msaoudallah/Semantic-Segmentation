@@ -1,0 +1,29 @@
+*.h5
+*.hdf5
+
+
+# Temporary OS files
+.DS_Store
+
+# TensorFlow Checkpoint files
+checkpoint
+
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IPython Notebook
+.ipynb_checkpoints
+
+# data folder
+original/
+
+# docs folders
+docs_models/
+docs_graphs/
+orriginal/
+output47/
+docs_notebooks/
+
