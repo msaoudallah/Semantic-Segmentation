@@ -220,17 +220,17 @@ def change_brightness(image):
 
 def train_valid_generator(train_path, seed, batch_sz, DIM):
     data_gen_args = dict(
-        width_shift_range=0.05,
-        height_shift_range=0.05,
-        zoom_range=0.05,
+        width_shift_range=0.1,
+        height_shift_range=0.1,
+        zoom_range=0.1,
         horizontal_flip=True,
         fill_mode='nearest',
         rescale=1./255)
 
     mask_gen_args = dict(
-        width_shift_range=0.05,
-        height_shift_range=0.05,
-        zoom_range=0.05,
+        width_shift_range=0.1,
+        height_shift_range=0.1,
+        zoom_range=0.1,
         preprocessing_function=encode_labels,
         horizontal_flip=True,
         fill_mode='nearest'
@@ -267,8 +267,8 @@ def train_valid_generator(train_path, seed, batch_sz, DIM):
     def train_generator_fn():
         for (img, mask) in train_generator:
             new_mask = adjust_mask(mask)
-            new_img = change_brightness(img)
-            yield (new_img, new_mask)
+#             new_img = change_brightness(img)
+            yield (img, new_mask)
 
     v_path = os.path.join(train_path, 'valid')
     valid_length = len(os.listdir(os.path.join(v_path, 'images')))
@@ -297,9 +297,9 @@ def train_valid_generator(train_path, seed, batch_sz, DIM):
 
         for (img, mask) in val_generator:
             new_mask = adjust_mask(mask)
-            new_img = change_brightness(img)
+#             new_img = change_brightness(img)
 
-            yield (new_img, new_mask)
+            yield (img, new_mask)
 
     return train_generator_fn, val_generator_fn, train_length, valid_length
 
@@ -366,6 +366,7 @@ def plot_predictions(path, model, dim, mode=None, seed=None, test_sample_size=10
             rgb_mask = np.apply_along_axis(
                 map_class_to_rgb, -1, np.expand_dims(np.argmax(preds[0], axis=-1), -1))
             ax[0].axis("off")
+            ax[0].title("test")
             ax[1].axis("off")
             ax[2].axis("off")
 

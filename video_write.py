@@ -31,8 +31,8 @@ if __name__ == "__main__":
 
 # best so far deeplabv3plus_retry_cs_kitti_xception.hdf5
 
-    model_name = "deeplabv3_epoch_001_valLoss_0.4450.h5"
-    DIM = 512
+    model_name = "deeplabv3_aws_epoch_127_valLoss_0.6034.h5"
+    DIM = 300
     used_model = os.path.join(saved_models, model_name)
 
     model = load_model(used_model, custom_objects={
@@ -40,17 +40,16 @@ if __name__ == "__main__":
 
     classes = pd.read_csv(classes_path, index_col='name')
 
-    sample_video = os.path.join(videos_dir, 'germany_4k.mp4')
+    sample_video = os.path.join(videos_dir, 'Driving Downtown USA.mp4')
 
-    # cap = cv2.VideoCapture(sample_video)
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture(sample_video)
+    # cap = cv2.VideoCapture(0)
 
     fourcc = cv2.VideoWriter_fourcc(*'MP4V')
-    vid_name = 'baset_outputgermany.mp4'
+    vid_name = 'usa_old_model.mp4'
 #     out = cv2.VideoWriter(vid_name, fourcc, 20.0, (640,  480))
-    out = cv2.VideoWriter(vid_name, fourcc, 10.0, (DIM, DIM))
+    out = cv2.VideoWriter(vid_name, fourcc, 15.0, (DIM, DIM))
     while (cap.isOpened()):
-        print("dsadas")
         # Capture frame-by-frame
         ret, frame = cap.read()
 

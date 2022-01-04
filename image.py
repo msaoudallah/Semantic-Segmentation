@@ -24,7 +24,7 @@ if __name__ == "__main__":
     output_images_dir = os.path.join(base_data_dir, 'output_images')
     output_videos_dir = os.path.join(base_data_dir, 'output_videos')
 
-    model_name = "deeplabv3_epoch_001_valLoss_0.4450.h5"
+    model_name = "deeplabv3_fulltraining_epoch_074_valLoss_0.5576.h5"
     DIM = 300
     output_width, output_height = 300, 300
 

@@ -1,6 +1,8 @@
 *.h5
 *.hdf5
-
+*.mp4
+*.png
+*.jpg
 
 # Temporary OS files
 .DS_Store
@@ -26,4 +28,4 @@ docs_graphs/
 orriginal/
 output47/
 docs_notebooks/
-
+API/

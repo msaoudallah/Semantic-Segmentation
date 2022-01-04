@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Semantic Segmentation</title>
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link href="../static/jumbotron-narrow.css" rel="stylesheet" />
+    <link href="../static/style.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+    <!-- --------------------------------------------------------------------------------- -->
+    <div class="container">
+      <div class="header">
+        <ul class="nav nav-pills pull-right">
+          <li role="presentation" class="btn">
+            <a href="{{ url_for('main') }}">Home</a>
+          </li>
+          <li role="presentation" class="btn">
+            <a href="https://github.com/MohamedSalahElden/semantic-segmentation"
+              >GIthub repo</a
+            >
+          </li>
+        </ul>
+        <h3 class="text-muted">Semantic Segmentation</h3>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="jumbotron">
+        <h2>Upload your image</h2>
+        <!-- <p class="lead"></p> -->
+        <div class="row">
+          <div class="col-md-4">
+            <form
+              id="upload-form"
+              action="{{ url_for('upload') }}"
+              method="POST"
+              enctype="multipart/form-data"
+            >
+              <input
+                id="file-picker"
+                type="file"
+                name="file"
+                accept="image/*"
+                class="hidden"
+                onchange="this.form.submit()"
+              />
+              <label for="file-picker" class="btn btn-lg btn-success">
+                Select file
+              </label>
+            </form>
+          </div>
+          <div class="col-md-4">
+            <form
+              class="form-inline"
+              method="POST"
+              action="{{ url_for('test') }}"
+            >
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon">select model</span>
+                  <select name="comp_select" class="selectpicker form-control">
+                    {% for o in data %}
+                    <option value="{{ o.name }}">{{ o.name }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+                <button type="submit" class="btn btn-default">Go</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="jumbotron">
+        <h2 style="text-align: center">{{ model_name }}</h2>
+        <!-- <p class="lead"></p> -->
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <div id="image-container">
+                <img src="{{ original_image }}" style="max-width: 100%" />
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div id="image-container">
+                <img src="{{ mixed_image }}" style="max-width: 100%" />
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div id="image-container">
+                <img src="{{ segmented_image }}" style="max-width: 100%" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- --------------------------------------------------------------------------------- -->
+  </body>
+</html>
