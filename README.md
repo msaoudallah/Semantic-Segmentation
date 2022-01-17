@@ -20,32 +20,31 @@ semantic segmentation project on kitti data set as part of ITI AI-Pro internship
 - Mahmoud Osama
 - Mohamed salah-el-den
 
-
 # Repo structure
 
-
- * dataset/        (contains all data resources)
-   * data/         (contain train , validation data)
-      * train/
-          * images/  
-          * labels/
-      * valid/
-          * images/
-          * labels/
-   * classes.csv  (contains labels and their RGB)
-   * test/         ( contains images to test)
- * output_images/  (contains output images from prediction )
- * output_videos/  (contains output videos from prediction )
- * docs_models/    (contains saved models after training)
- * arch/           (contains different models to be used in training)
- * utils/          (contains necessary functions to be used for training and inference)
- * static/ , templates/ (directiories used by the flask web app)
- * image.py       (inference script for images)
- * video.py       (inference script for videos)
- * sample_training_notebook.ipynb (notebook for training models)
- * app.py         ( flask application python file)
+- dataset/ (contains all data resources)
+  - data/ (contain train , validation data)
+    - train/
+      - images/
+      - labels/
+    - valid/
+      - images/
+      - labels/
+  - classes.csv (contains labels and their RGB)
+  - test/ ( contains images to test)
+- output_images/ (contains output images from prediction )
+- output_videos/ (contains output videos from prediction )
+- docs_models/ (contains saved models after training)
+- arch/ (contains different models to be used in training)
+- utils/ (contains necessary functions to be used for training and inference)
+- static/ , templates/ (directiories used by the flask web app)
+- image.py (inference script for images)
+- video.py (inference script for videos)
+- sample_training_notebook.ipynb (notebook for training models)
+- app.py ( flask application python file)
 
 ## Required Packages:
+
 - [Anaconda distribution for python] (https://www.anaconda.com/)
 - Tensorflow 2.X for GPU
 - [Segmentation models] (https://github.com/qubvel/segmentation_models)
@@ -59,25 +58,24 @@ follow instruction in the notebook for training
 # How to inference script for images
 
 put images you want to test inside "dataset/test" folder and run image.py from terminal and provide the following parameters:
-  - model        : provide model name e.g "example.h5" model should be in "docs_models" folder
-  - dim          : proivde dimension you used in training your model
-  - outputwidhth (optional): provide the width of the output segmented image
-  - outputheight (optional): provide the height of the output segmented image
-script will go through all images in "dataset/test" and output will be saved to "output_images" folder 
+
+- model : provide model name e.g "example.h5" model should be in "docs_models" folder
+- dim : proivde dimension you used in training your model
+- outputwidhth (optional): provide the width of the output segmented image
+- outputheight (optional): provide the height of the output segmented image
+  script will go through all images in "dataset/test" and output will be saved to "output_images" folder
 
 # How to inference script for vidoes
 
 run vdieo.py from terminal and provide the following parameters:
-  - model        : provide model name e.g "example.h5" model should be in "docs_models" folder
-  - dim          : proivde dimension you used in training your model
-  - videopath    : provide the full path of the video to be segmented
 
-script will load the video and output will be saved to "output_videos" folder 
+- model : provide model name e.g "example.h5" model should be in "docs_models" folder
+- dim : proivde dimension you used in training your model
+- videopath : provide the full path of the video to be segmented
 
+script will load the video and output will be saved to "output_videos" folder
 
 # Application
 
 -from terminal run app.py and wait for server to start
--open [localhost] (http://127.0.0.1:5000/) and start using the application
-
-
+-open [localhost](http://127.0.0.1:5000/) and start using the application
