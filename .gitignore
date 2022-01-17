@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *.h5
 *.hdf5
 *.mp4
@@ -29,3 +30,31 @@ orriginal/
 output47/
 docs_notebooks/
 API/
+||||||| constructed merge base
+=======
+*.hdf5
+*.mp4
+*.png
+*.jpg
+*.pptx
+*.zip
+
+# Temporary OS files
+.DS_Store
+
+# TensorFlow Checkpoint files
+checkpoint
+
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IPython Notebook
+.ipynb_checkpoints
+
+# docs folders
+docs_graphs/
+docs_notebooks/
+>>>>>>> first commit
