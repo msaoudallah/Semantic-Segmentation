@@ -86,4 +86,3 @@ if __name__ == "__main__":
 
     # Closes all the windows currently opened.
     cv2.destroyAllWindows()
->>>>>> > first commit
