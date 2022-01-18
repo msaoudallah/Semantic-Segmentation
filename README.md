@@ -20,7 +20,7 @@ semantic segmentation project on kitti data set as part of ITI AI-Pro internship
 - Mahmoud Osama
 - Mohamed salah-el-den
 
-# Repo structure
+# file structure
 
 - dataset/ (contains all data resources)
   - data/ (contain train , validation data)
@@ -76,6 +76,6 @@ run vdieo.py from terminal and provide the following parameters:
 script will load the video and output will be saved to "output_videos" folder
 
 # Application
-
--from terminal run app.py and wait for server to start
--open [localhost](http://127.0.0.1:5000/) and start using the application
+- download our pretrained model from this [link](https://drive.google.com/drive/folders/1Yopg6jfbR1A9Vm_4tfUdz3jFCcw77C7L?usp=sharing) and save them to docs_models folder
+- from terminal run app.py and wait for server to start
+- open [localhost](http://127.0.0.1:5000/) and start using the application
